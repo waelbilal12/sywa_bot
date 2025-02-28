@@ -1,0 +1,808 @@
+version: "3.1"
+
+intents: 
+  - start
+  - city
+  - travel_tourism
+  - travel_study
+  - travel_work
+  - travel_out
+  - travel_in
+  - travel_null
+  - travel_arab
+  - travel_foreign
+  - travel_both
+  - travel_to_giza
+  - travel_to_riyadh
+  - travel_to_halaab
+  - travel_to_latakia
+  - travel_to_dubai
+  - travel_to_berlin
+  - travel_to_paris
+  - travel_to_tokyo
+  - travel_to_madrid
+  - travel_to_new_york
+  - travel_to_sea
+  - travel_to_arab
+
+  # مجموعة النوايا العربية
+  - travel_to_latakia_arab_1
+  - travel_to_latakia_arab_2
+  - travel_to_latakia_arab_3
+  - travel_to_latakia_arab_4
+  - travel_to_latakia_arab_5
+  - travel_to_latakia_arab_6
+  - travel_to_latakia_arab_7
+  - travel_to_latakia_arab_8
+  - travel_to_latakia_arab_9
+  - travel_to_dubai_arab_1
+  - travel_to_dubai_arab_2
+  - travel_to_dubai_arab_3
+  - travel_to_dubai_arab_4
+  - travel_to_dubai_arab_5
+  - travel_to_dubai_arab_6
+  - travel_to_dubai_arab_7
+  - travel_to_dubai_arab_8
+  - travel_to_dubai_arab_9
+  - travel_to_dubai_arab_10
+  - travel_to_dubai_arab_11
+  - travel_to_dubai_arab_12
+  - travel_to_dubai_arab_13
+  - travel_to_dubai_arab_14
+  - travel_to_dubai_arab_15
+  - travel_to_halaab_arab_1
+  - travel_to_halaab_arab_2
+  - travel_to_halaab_arab_3
+  - travel_to_halaab_arab_4
+  - travel_to_halaab_arab_5
+  - travel_to_halaab_arab_6
+  - travel_to_halaab_arab_7
+  - travel_to_halaab_arab_8
+  - travel_to_giza_arab_1
+  - travel_to_giza_arab_2
+  - travel_to_giza_arab_3
+  - travel_to_giza_arab_4
+  - travel_to_giza_arab_5
+  - travel_to_giza_arab_6
+  - travel_to_giza_arab_7
+  - travel_to_giza_arab_8
+  - travel_to_giza_arab_9
+  - travel_to_riyadh_arab_1
+  - travel_to_riyadh_arab_2
+  - travel_to_riyadh_arab_3
+  - travel_to_riyadh_arab_4
+  - travel_to_riyadh_arab_5
+  - travel_to_riyadh_arab_6
+  - travel_to_riyadh_arab_7
+  - travel_to_doha_arab_1
+  - travel_to_doha_arab_2
+  - travel_to_doha_arab_3
+  - travel_to_makkah_arab_1
+  - travel_to_makkah_arab_2
+  - travel_to_amman_arab_1
+  - travel_to_amman_arab_2
+  - travel_to_amman_arab_3
+  - travel_to_amman_arab_4
+  - travel_to_amman_arab_5
+  - travel_to_amman_arab_6
+  - travel_to_amman_arab_7
+  - travel_to_amman_arab_8
+  - travel_to_amman_arab_9
+  - travel_to_beirut_arab_1
+  - travel_to_beirut_arab_2
+  - travel_to_beirut_arab_3
+  - travel_to_beirut_arab_4
+  - travel_to_beirut_arab_5
+  - travel_to_beirut_arab_6
+  - travel_to_beirut_arab_7
+  - travel_to_beirut_arab_8
+  - travel_to_beirut_arab_9
+  - travel_to_beirut_arab_10
+  - travel_to_beirut_arab_11
+  - travel_to_sharjah_arab_1
+  - travel_to_sharjah_arab_2
+  - travel_to_sharjah_arab_3
+  - travel_to_sharjah_arab_4
+  - travel_to_sharjah_arab_5
+  - travel_to_sharjah_arab_6
+  - travel_to_sharjah_arab_7
+
+  # مجموعة النوايا الأجنبية
+  - travel_to_berlin_foreign_1
+  - travel_to_berlin_foreign_2
+  - travel_to_berlin_foreign_3
+  - travel_to_berlin_foreign_4
+  - travel_to_berlin_foreign_5
+  - travel_to_paris_foreign_1
+  - travel_to_paris_foreign_2
+  - travel_to_paris_foreign_3
+  - travel_to_paris_foreign_4
+  - travel_to_paris_foreign_5
+  - travel_to_tokyo_foreign_1
+  - travel_to_tokyo_foreign_2
+  - travel_to_tokyo_foreign_3
+  - travel_to_tokyo_foreign_4
+  - travel_to_tokyo_foreign_5
+  - travel_to_madrid_foreign_1
+  - travel_to_madrid_foreign_2
+  - travel_to_madrid_foreign_3
+  - travel_to_madrid_foreign_4
+  - travel_to_madrid_foreign_5 
+  - travel_to_new_york_foreign_1 
+  - travel_to_new_york_foreign_2 
+  - travel_to_new_york_foreign_3 
+  - travel_to_new_york_foreign_4 
+  - travel_to_new_york_foreign_5
+  - travel_to_mixed_1
+  - travel_to_mixed_2
+  - travel_to_mixed_3
+  - travel_to_mixed_4
+  
+
+  - province
+  - preference_history
+  - preference_nature
+  - preference_sea
+  - preference_modern
+  - preference_culture
+
+
+
+entities:
+  - province
+
+slots:
+  city:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: city
+  province:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: province
+   
+responses: 
+
+  utter_question_1_tourism:
+    - text: " ماسبب رغبتك في السفر ؟"
+      buttons:
+        - title: "السياحة و الترفيه"
+          payload: "/travel_tourism"
+        - title: "الدراسة"
+          payload: "/travel_study"
+        - title: "العمل"
+          payload: "/travel_work"
+
+  utter_check_city_intent:
+    - text: "نعم، نية {city} موجودة."
+      buttons:
+        - title: "معلومات إضافية"
+          payload: "/travel_to_{city}"
+
+  utter_question_3_tourism:
+    - text: " هل تريد السفر بداخل ام خارج بلدك؟"
+      buttons:
+        - title: "خارجه"
+          payload: "/travel_out"
+        - title: "داخله"
+          payload: "/travel_in"
+        - title: "لا مشكلة لدي  في كلاهما"
+          payload: "/travel_null"
+    
+  utter_question_0_base:
+    - text: "هل تريد السفر إلى بلد عربي أم أجنبي؟"
+      buttons:
+        - title: "عربي"
+          payload: "/travel_arab"
+        - title: "أجنبي"
+          payload: "/travel_foreign"
+        - title: "لا مشكلة لدي في كلاهما"
+          payload: "/travel_arab"
+
+  utter_question_1_arabic:
+    - text: "ما هو نوع النشاط الذي تفضله خلال رحلتك؟"
+      buttons:
+        - title: "استكشاف المعالم التاريخية"
+          payload: "/travel_to_halaab_arab_1"
+        - title: "التسوق في الأسواق الحديثة"
+          payload: "/travel_to_dubai_arab_1"
+        - title: "الاستمتاع بالشواطئ والمناظر الطبيعية"
+          payload: "/travel_to_latakia_arab_1"
+        - title: "تجربة المأكولات المحلية الشهية"
+          payload: "/travel_to_beirut_arab_1"
+
+  utter_question_2_arabic:
+    - text: "ما هو الميزانية المتوقعة لرحلتك؟"
+      buttons:
+        - title: "ميزانية محدودة"
+          payload: "/travel_to_giza_arab_1"
+        - title: "ميزانية متوسطة"
+          payload: "/travel_to_amman_arab_1"
+        - title: "ميزانية عالية"
+          payload: "/travel_to_doha_arab_1"
+        - title: "لا حدود للميزانية"
+          payload: "/travel_to_dubai_arab_2"
+
+  utter_question_3_arabic:
+    - text: "ما هو الموسم المفضل لديك للسفر؟"
+      buttons:
+        - title: "الربيع"
+          payload: "/travel_to_riyadh_arab_1"
+        - title: "الصيف"
+          payload: "/travel_to_sharjah_arab_1"
+        - title: "الخريف"
+          payload: "/travel_to_halaab_arab_2"
+        - title: "الشتاء"
+          payload: "/travel_to_makkah_arab_1"
+
+  utter_question_4_arabic:
+    - text: "هل تفضل السفر بمفردك أم مع عائلتك؟"
+      buttons:
+        - title: "مفردي"
+          payload: "/travel_to_beirut_arab_2"
+        - title: "مع العائلة"
+          payload: "/travel_to_dubai_arab_3"
+        - title: "مع الأصدقاء"
+          payload: "/travel_to_latakia_arab_2"
+        - title: "مع شريك الحياة"
+          payload: "/travel_to_sharjah_arab_2"
+
+  utter_question_5_arabic:
+    - text: "ما هو مستوى الإثارة الذي تبحث عنه في رحلتك؟"
+      buttons:
+        - title: "رحلات مغامرة مليئة بالتحديات"
+          payload: "/travel_to_amman_arab_2"
+        - title: "رحلات استرخاء وهدوء"
+          payload: "/travel_to_latakia_arab_3"
+        - title: "رحلات ثقافية وتعليمية"
+          payload: "/travel_to_halaab_arab_3"
+        - title: "رحلات ترفيهية وعائلية"
+          payload: "/travel_to_dubai_arab_4"
+
+  utter_question_6_arabic:
+    - text: "ما هو نوع الإقامة الذي تفضله؟"
+      buttons:
+        - title: "فنادق فاخرة"
+          payload: "/travel_to_doha_arab_2"
+        - title: "شقق فندقية"
+          payload: "/travel_to_riyadh_arab_2"
+        - title: "بيوت ضيافة"
+          payload: "/travel_to_giza_arab_2"
+        - title: "مخيمات في الطبيعة"
+          payload: "/travel_to_amman_arab_3"
+
+  utter_question_7_arabic:
+    - text: "هل تفضل زيارة المدن الكبرى أم المدن الصغيرة؟"
+      buttons:
+        - title: "المدن الكبرى"
+          payload: "/travel_to_dubai_arab_5"
+        - title: "المدن الصغيرة"
+          payload: "/travel_to_latakia_arab_4"
+        - title: "القرى الريفية"
+          payload: "/travel_to_halaab_arab_4"
+        - title: "لا يهمني طالما هناك نشاطات ممتعة"
+          payload: "/travel_to_beirut_arab_3"
+
+  utter_question_8_arabic:
+    - text: "ما هو نوع الطعام الذي تفضله خلال رحلتك؟"
+      buttons:
+        - title: "الأكلات الشعبية التقليدية"
+          payload: "/travel_to_giza_arab_3"
+        - title: "الأكلات العالمية"
+          payload: "/travel_to_dubai_arab_6"
+        - title: "الأكلات البحرية"
+          payload: "/travel_to_latakia_arab_5"
+        - title: "الأكلات النباتية"
+          payload: "/travel_to_amman_arab_4"
+
+  utter_question_9_arabic:
+    - text: "هل تفضل زيارة الأماكن الدينية أم الأماكن الترفيهية؟"
+      buttons:
+        - title: "الأماكن الدينية"
+          payload: "/travel_to_makkah_arab_2"
+        - title: "الأماكن الترفيهية"
+          payload: "/travel_to_dubai_arab_7"
+        - title: "مزيج من الاثنين"
+          payload: "/travel_to_sharjah_arab_3"
+        - title: "لا أهتم بالأمر"
+          payload: "/travel_to_beirut_arab_4"
+
+  utter_question_10_arabic:
+    - text: "ما هو مستوى الرفاهية الذي تبحث عنه؟"
+      buttons:
+        - title: "رفاهية عالية"
+          payload: "/travel_to_doha_arab_3"
+        - title: "رفاهية متوسطة"
+          payload: "/travel_to_riyadh_arab_3"
+        - title: "رفاهية بسيطة"
+          payload: "/travel_to_giza_arab_4"
+        - title: "لا أهتم بالرفاهية"
+          payload: "/travel_to_halaab_arab_5"
+
+  utter_question_11_arabic:
+    - text: "هل تفضل زيارة الأماكن الطبيعية أم الأماكن الحضرية؟"
+      buttons:
+        - title: "الأماكن الطبيعية"
+          payload: "/travel_to_latakia_arab_6"
+        - title: "الأماكن الحضرية"
+          payload: "/travel_to_dubai_arab_8"
+        - title: "مزيج من الاثنين"
+          payload: "/travel_to_amman_arab_5"
+        - title: "لا يهمني طالما هناك نشاطات ممتعة"
+          payload: "/travel_to_beirut_arab_5"
+
+  utter_question_12_arabic:
+    - text: "هل تفضل السفر في مواسم الذروة أم خارجها؟"
+      buttons:
+        - title: "مواسم الذروة"
+          payload: "/travel_to_dubai_arab_9"
+        - title: "خارج مواسم الذروة"
+          payload: "/travel_to_halaab_arab_6"
+        - title: "لا يهمني"
+          payload: "/travel_to_giza_arab_5"
+        - title: "أفضل السفر في المواسم المتوسطة"
+          payload: "/travel_to_riyadh_arab_4"
+
+  utter_question_13_arabic:
+    - text: "هل تفضل السفر إلى مدن ساحلية أم داخلية؟"
+      buttons:
+        - title: "مدن ساحلية"
+          payload: "/travel_to_latakia_arab_7"
+        - title: "مدن داخلية"
+          payload: "/travel_to_riyadh_arab_5"
+        - title: "لا يهمني"
+          payload: "/travel_to_beirut_arab_6"
+        - title: "أفضل المدن التي تجمع بين الاثنين"
+          payload: "/travel_to_sharjah_arab_4"
+
+  utter_question_14_arabic:
+    - text: "هل تفضل زيارة الأماكن الأثرية أم الأماكن الحديثة؟"
+      buttons:
+        - title: "الأماكن الأثرية"
+          payload: "/travel_to_giza_arab_6"
+        - title: "الأماكن الحديثة"
+          payload: "/travel_to_dubai_arab_10"
+        - title: "مزيج من الاثنين"
+          payload: "/travel_to_amman_arab_6"
+        - title: "لا يهمني"
+          payload: "/travel_to_beirut_arab_7"
+
+  utter_question_15_arabic:
+    - text: "هل تفضل السفر إلى مدن ذات طابع تاريخي أم مدن حديثة؟"
+      buttons:
+        - title: "مدن ذات طابع تاريخي"
+          payload: "/travel_to_halaab_arab_7"
+        - title: "مدن حديثة"
+          payload: "/travel_to_dubai_arab_11"
+        - title: "مزيج من الاثنين"
+          payload: "/travel_to_sharjah_arab_5"
+        - title: "لا يهمني"
+          payload: "/travel_to_riyadh_arab_6"
+
+  utter_question_16_arabic:
+    - text: "هل تفضل السفر إلى مدن ذات طابع ثقافي قوي؟"
+      buttons:
+        - title: "نعم، أحب التعرف على الثقافات"
+          payload: "/travel_to_beirut_arab_8"
+        - title: "لا، أفضل المدن الترفيهية"
+          payload: "/travel_to_dubai_arab_12"
+        - title: "لا يهمني"
+          payload: "/travel_to_giza_arab_7"
+        - title: "أفضل المدن التي تجمع بين الثقافة والترفيه"
+          payload: "/travel_to_amman_arab_7"
+
+  utter_question_17_arabic:
+    - text: "هل تفضل السفر إلى مدن ذات حياة ليلية نشطة؟"
+      buttons:
+        - title: "نعم، أحب الحياة الليلية"
+          payload: "/travel_to_dubai_arab_13"
+        - title: "لا، أفضل المدن الهادئة"
+          payload: "/travel_to_latakia_arab_8"
+        - title: "لا يهمني"
+          payload: "/travel_to_beirut_arab_9"
+        - title: "أفضل المدن التي تجمع بين الاثنين"
+          payload: "/travel_to_sharjah_arab_6"
+
+  utter_question_18_arabic:
+    - text: "هل تفضل السفر إلى مدن ذات طابع عائلي؟"
+      buttons:
+        - title: "نعم، أحب المدن العائلية"
+          payload: "/travel_to_dubai_arab_14"
+        - title: "لا، أفضل المدن الفردية"
+          payload: "/travel_to_beirut_arab_10"
+        - title: "لا يهمني"
+          payload: "/travel_to_giza_arab_8"
+        - title: "أفضل المدن التي تجمع بين الاثنين"
+          payload: "/travel_to_amman_arab_8"
+
+  utter_question_19_arabic:
+    - text: "هل تفضل السفر إلى مدن ذات طابع رومانسي؟"
+      buttons:
+        - title: "نعم، أحب المدن الرومانسية"
+          payload: "/travel_to_sharjah_arab_7"
+        - title: "لا، أفضل المدن العملية"
+          payload: "/travel_to_riyadh_arab_7"
+        - title: "لا يهمني"
+          payload: "/travel_to_latakia_arab_9"
+        - title: "أفضل المدن التي تجمع بين الاثنين"
+          payload: "/travel_to_beirut_arab_11"
+
+  utter_question_20_arabic:
+    - text: "هل تفضل السفر إلى مدن ذات طابع تسوقي قوي؟"
+      buttons:
+        - title: "نعم، أحب التسوق"
+          payload: "/travel_to_dubai_arab_15"
+        - title: "لا، أفضل المدن الهادئة"
+          payload: "/travel_to_halaab_arab_8"
+        - title: "لا يهمني"
+          payload: "/travel_to_giza_arab_9"
+        - title: "أفضل المدن التي تجمع بين التسوق والهدوء"
+          payload: "/travel_to_amman_arab_9"
+
+  # أسئلة أجنبية
+  utter_question_1_foreign:
+    - text: " ما الاهداف التي ستقوم بها وعلى اساسها تنوي السفر" 
+      buttons:
+        - title: "الدراسة او العمل" 
+          payload: "/travel_to_tokyo_foreign_1" 
+        - title: "الاستراحة" 
+          payload: "/travel_to_paris_foreign_1" 
+        - title: "الاستشكاف" 
+          payload: "/travel_to_berlin_foreign_1" 
+
+  utter_question_2_foreign:
+    - text: ": من مميزات المدينة التي  تنوي السفر لها هي " 
+      buttons:
+        - title: "المتاحف و المعالم" 
+          payload: "/travel_to_paris_foreign_2" 
+        - title: " الثقافة و الدين"
+          payload: "/travel_to_berlin_foreign_2" 
+        - title: "تنوع الأنشطة والرياضات" 
+          payload: "/travel_to_tokyo_foreign_2" 
+        
+
+  utter_question_3_foreign: 
+    - text: "ما هي الأنشطة الثقافية التي تسعدك أثناء السفر ؟" 
+      buttons: 
+        - title: "مشاهدة العروض المسرحية" 
+          payload: "/travel_to_tokyo_foreign_3" 
+        - title: "زيارة مواقع تاريخية" 
+          payload: "/travel_to_paris_foreign_3" 
+        - title: "المشاركة بفعاليات محلية" 
+          payload: "/travel_to_berlin_foreign_3" 
+       
+
+  utter_question_4_foreign: 
+    - text: "ما هي الانشطة التي تحب ممارستها؟" 
+      buttons: 
+        - title: "ركوب القوارب" 
+          payload: "travel_to_paris_foreign_4" 
+        - title: "المشي و الجري" 
+          payload: "/travel_to_tokyo_foreign_4" 
+        - title: "تجربة الانشطة يدوياً" 
+          payload: "/travel_to_paris" 
+        - title: "تجربة ألعاب محلية بدلاً عن ذلك" 
+          payload: "/travel_to_berlin_foreign_4"
+
+  utter_question_5_foreign: 
+    - text: "الطبيعة التي تفضلها يجب ان تكون ذو طابع؟"  
+      buttons:
+        - title: "ثلجي" 
+          payload: "/travel_to_berlin_foreign_5" 
+        - title: "حيوية بحركة السكان و الأجواء الدافئة" 
+          payload: "/travel_to_tokyo_foreign_5" 
+        - title: " مائية ساحلية او قريبة من النهر" 
+          payload: "/travel_to_paris_foreign_5" 
+
+  utter_question_6_foreign: 
+    - text: "ما هي الأنشطة الترفيهية المفضلة لديك؟"
+      buttons:
+        - title: "حضور الحفلات الموسيقية الحية أو المهرجانات الثقافية"  
+          payload: "/travel_to_berlin"  
+        - title: "زيارة المعارض الفنية أو المتاحف"  
+          payload: "/travel_to_paris"  
+        - title: "استكشاف الأسواق المحلية"  
+          payload: "/travel_to_madrid"  
+        - title: "الذهاب إلى الحدائق العامة والاستمتاع بالطبيعة"  
+          payload: "/travel_to_tokyo"  
+
+  utter_question_7_foreign: 
+    - text: "هل تحب المغامرات الخارجية أم الأنشطة الداخلية؟"
+      buttons:
+        - title: "المغامرات الخارجية مثل المشي لمسافات طويلة"  
+          payload: "/travel_to_tokyo"  
+        - title: "الأنشطة الداخلية مثل زيارة المتاحف"  
+          payload: "/travel_to_paris"  
+        - title: "مزيج من الاثنين حسب الطقس"  
+          payload: "/travel_to_madrid"  
+        - title: "الأنشطة الثقافية مثل العروض المسرحية"  
+          payload: "/travel_to_berlin"  
+
+  utter_question_8_foreign: 
+    - text: "أي نوع من الفنادق تفضل الإقامة فيه؟"
+      buttons:
+        - title: "الفنادق الفاخرة ذات الخدمات العالية"  
+          payload: "/travel_to_paris"  
+        - title: "الفنادق الاقتصادية والمريحة"  
+          payload: "/travel_to_madrid"   
+        - title: "النزل الشبابية للتواصل مع المسافرين الآخرين"   
+          payload: "/travel_to_berlin"   
+        - title: "الشقق المفروشة لتجربة محلية أكثر"   
+          payload: "/travel_to_tokyo"  
+
+# أسئلة مختلط
+  utter_question_mixed_1: 
+    - text: "ما هي الوجهة المفضلة لديك لقضاء العطلة؟"
+      buttons:
+        - title: "مدينة تاريخية"   
+          payload: "/travel_to_halaab_arab_1"   
+        - title: "شاطئ"   
+          payload: "/travel_to_latakia_arab_1"   
+        - title: "منطقة جبلية"   
+          payload: "/travel_to_giza_arab_1"   
+        - title: "وجهة سياحية مشهورة"   
+          payload: "/travel_to_tokyo_foreign_1"
+        - title: "غير ذلك"   
+          payload: "/travel_to_mixed_1"
+
+  utter_question_mixed_2: 
+    - text: "ما هو نمط السفر الذي تفضله؟"
+      buttons:
+        - title: "سفر للاسترخاء"   
+          payload: "/travel_to_latakia_arab_2"   
+        - title: "مغامرة"   
+          payload: "/travel_to_giza_arab_2"   
+        - title: "استكشاف ثقافات جديدة"   
+          payload: "/travel_to_tokyo_foreign_2"   
+        - title: "العمل"   
+          payload: "/travel_to_dubai_arab_1"
+        - title: "غير ذلك"   
+          payload: "/travel_to_mixed_2"
+
+
+  utter_question_mixed_3:
+    - text: "ما هو ميزانيتك التقريبية للسفر؟"
+      buttons:
+        - title: "اقتصادية"   
+          payload: "/travel_to_halaab_arab_2"   
+        - title: "متوسطة"   
+          payload: "/travel_to_riyadh_arab_2"
+        - title: "فاخرة"   
+          payload: "/travel_to_paris_foreign_1"
+        - title: "مرنة حسب الوجهة"
+          payload: "/travel_to_tokyo_foreign_3"
+        - title: "غير ذلك"   
+          payload: "/travel_to_mixed_3"
+
+  utter_question_mixed_4:
+    - text: "هل لديك تفضيل معين لنوع الإقامة؟"
+      buttons:
+        - title: "فنادق فاخرة"
+          payload: "/travel_to_paris_foreign_2"
+        - title: "نُزل اقتصادية"
+          payload: "/travel_to_halaab_arab_3"
+        - title: "شقق مفروشة"
+          payload: "/travel_to_dubai_arab_2"
+        - title: "تخييم"
+          payload: "/travel_to_giza_arab_3"
+        - title: "غير ذلك"   
+          payload: "/travel_to_mixed_4"
+
+  utter_question_mixed_5:
+    - text: "ما هو الوقت المناسب لك للسفر؟"
+      buttons:
+        - title: "موسم الصيف"
+          payload: "/travel_to_madrid"
+        - title: "موسم الشتاء"
+          payload: "/travel_to_berlin"
+        - title: "عطلات نهاية الأسبوع"
+          payload: "/travel_to_riyadh"
+        - title: "تواريخ محددة"
+          payload: "/travel_to_newyork"
+
+  utter_question_mixed_6: 
+    - text: "هل تفضل السفر بمفردك أم مع مجموعة؟"
+      buttons: 
+        - title: "مع العائلة"
+          payload: "/travel_to_halaab"
+        - title: "مع الأصدقاء"
+          payload: "/travel_to_latakia"
+        - title: "مع مجموعة منظمة"
+          payload: "/travel_to_berlin"
+        - title: "بمفردك"
+          payload: "/travel_to_paris"
+
+  utter_question_mixed_7: 
+    - text: "ما هي الأنشطة التي تحب ممارستها أثناء السفر؟"
+      buttons: 
+        - title: "الغوص"
+          payload: "/travel_to_latakia"
+        - title: "التزلج"
+          payload: "/travel_to_berlin"
+        - title: "التسوق"
+          payload: "/travel_dubai"
+        - title: "استكشاف الطبيعة"
+  
+
+  # الردود الخاصة بالمدن العربية
+  utter_giza:
+  - text: "اقترح عليك السفر إلى الجيزة للاستمتاع بمشاهدة الأهرامات."
+
+  utter_halaab:
+  - text: "حلب مدينة غنية بالتاريخ. هل لديك رغبة في استكشافها؟"
+
+  utter_latakia:
+  - text: "اقترح عليك السفر إلى اللاذقية للاستمتاع بالشواطئ الجميلة."
+
+  utter_dubai:
+  - text: "اقترح عليك السفر إلى دبي لتجربة الحياة العصرية."
+
+  utter_riyadh:
+  - text: "اقترح عليك السفر إلى الرياض لاستكشاف الثقافة السعودية."
+
+  utter_doha:
+    - text: "اقترح عليك السفر إلى الدوحة لتجربة الثقافة القطرية والتمتع بالأماكن الحديثة والمتاحف الفنية."
+
+  utter_makkah:
+    - text: "اقترح عليك السفر إلى مكة لأداء العمرة أو الحج والاستمتاع بالأجواء الروحانية الفريدة."
+
+  utter_amman:
+    - text: "اقترح عليك السفر إلى عمان لاستكشاف التاريخ الأردني والتمتع بالأماكن الأثرية والطبيعة الخلابة."
+
+  utter_beirut:
+    - text: "اقترح عليك السفر إلى بيروت لتجربة الحياة الليلية النابضة بالحياة والتمتع بالمأكولات اللبنانية الشهية."
+
+  utter_sharjah:
+    - text: "اقترح عليك السفر إلى الشارقة للاستمتاع بالثقافة العربية الأصيلة وزيارة المتاحف والأماكن التراثية."
+
+
+
+  # الردود الخاصة بالمدن الأجنبية
+  utter_berlin:
+    - text: "اقترح عليك السفر إلى برلين لاستكشاف الثقافة والفنون."
+
+
+  utter_paris:
+    - text: "اقترح عليك السفر إلى باريس للاستمتاع بجمال المدينة."
+
+
+  utter_tokyo:
+    - text: "اقترح عليك السفر إلى طوكيو لتجربة الثقافة اليابانية."
+
+  utter_madrid:
+    - text: "اقترح عليك السفر إلى مدريد للاستمتاع بالفن والثقافة الإسبانية."
+
+  utter_new_york:
+    - text: "اقترح عليك السفر إلى نيويورك لتجربة الحياة في المدينة الكبيرة."
+  
+  
+  utter_ask_province:
+    - text: "أهلاً بك! من أي محافظة في سوريا أنت؟"
+      buttons:
+        - title: "دمشق"
+          payload: "/province{\"province\": \"دمشق\"}"
+        - title: "حلب"
+          payload: "/province{\"province\": \"حلب\"}"
+        - title: "اللاذقية"
+          payload: "/province{\"province\": \"اللاذقية\"}"
+        - title: "حمص"
+          payload: "/province{\"province\": \"حمص\"}"
+        - title: "إدلب"
+          payload: "/province{\"province\": \"إدلب\"}"
+
+  utter_ask_preference:
+    - text: "ما الذي تفضله في رحلتك؟"
+      buttons:
+        - title: "التاريخ والآثار"
+          payload: "/preference_history"
+        - title: "الطبيعة والجبال"
+          payload: "/preference_nature"
+        - title: "الشواطئ"
+          payload: "/preference_sea"
+        - title: "المدن الحديثة"
+          payload: "/preference_modern"
+
+  utter_recommend_damascus:
+    - text: "أنصحك بزيارة دمشق لمشاهدة المعالم التاريخية مثل الجامع الأموي وسوق الحميدية."
+
+  utter_recommend_aleppo:
+    - text: "حلب مناسبة لك مع قلعتها التاريخية وأسواقها القديمة."
+
+  utter_recommend_latakia:
+    - text: "اللاذقية مثالية للشواطئ والاسترخاء على ساحل البحر المتوسط."
+
+  utter_recommend_homs:
+    - text: "حمص تجمع بين التاريخ في قلعة الحصن والطبيعة في وادي النضارة."
+
+  utter_recommend_idlib:
+    - text: "إدلب غنية بالمواقع الأثرية مثل تل مشرفة ومعرة النعمان."
+
+
+
+actions:
+  
+  # بدء الأسئلة
+  - action_check_city_intent
+  - utter_question_1_tourism
+  - utter_question_3_tourism
+  - utter_question_0_base
+
+  - utter_berlin
+  - utter_tokyo
+  - utter_new_york
+  - utter_paris
+  - utter_madrid
+
+  - utter_dubai
+  - utter_latakia
+  - utter_giza
+  - utter_halaab
+  - utter_riyadh
+  - utter_sharjah
+  - utter_beirut
+  - utter_amman
+  - utter_makkah
+  - utter_doha
+
+  # أسئلة عربية
+
+  - utter_question_1_arabic
+  - utter_question_2_arabic
+  - utter_question_3_arabic
+  - utter_question_4_arabic
+  - utter_question_5_arabic
+  - utter_question_6_arabic
+  - utter_question_7_arabic
+  - utter_question_8_arabic
+  - utter_question_9_arabic
+  - utter_question_10_arabic
+  - utter_question_11_arabic
+  - utter_question_12_arabic
+  - utter_question_13_arabic
+  - utter_question_14_arabic
+  - utter_question_15_arabic
+  - utter_question_16_arabic
+  - utter_question_17_arabic
+  - utter_question_18_arabic
+  - utter_question_19_arabic
+  - utter_question_20_arabic
+
+  # أسئلة أجنبية
+  - utter_question_1_foreign
+  - utter_question_2_foreign
+  - utter_question_3_foreign
+  - utter_question_4_foreign
+  - utter_question_5_foreign
+  - utter_question_6_foreign
+  - utter_question_7_foreign
+  - utter_question_8_foreign
+
+  - utter_question_mixed_1
+  - utter_question_mixed_2
+  - utter_question_mixed_3
+  - utter_question_mixed_4
+  - utter_question_mixed_5
+  - utter_question_mixed_6
+  - utter_question_mixed_7
+
+ 
+  - action_default_fallback
+  - action_ask_first_question
+  - action_track_intent
+  
+  
+  - utter_ask_province
+  - utter_ask_preference
+  - utter_recommend_damascus
+  - utter_recommend_aleppo
+  - utter_recommend_latakia
+  - utter_recommend_homs
+  - utter_recommend_idlib
+  - action_unified
+
+# Set action_default_fallback as the default action
+
